@@ -13,19 +13,19 @@ ludique et simple d'utilisation.
 
 Le joueur choisit sa Miss favorite avant le début du concours.
 
-### 👗 Étape 1 -- Défilé des 40 Miss
+### 👗 Étape 1 -- Défilé des 30 Miss
 
 -   Notation sur 3 critères (ex. élégance, prestance, originalité).
 -   Calcul automatique d'un score par Miss.
--   Sélection automatique des **20 meilleures**.
+-   Sélection automatique des **15 meilleures**.
 
-### ⭐ Étape 2 -- Saisie des 20 Miss officielles
+### ⭐ Étape 2 -- Saisie des 15 Miss officielles
 
--   Le joueur saisit les 20 Miss officiellement qualifiées.
--   Comparaison avec les 20 Miss sélectionnées automatiquement.
+-   Le joueur saisit les 15 Miss officiellement qualifiées.
+-   Comparaison avec les 15 Miss sélectionnées automatiquement.
 -   Attribution d'un score selon les correspondances.
 
-### 💃 Étape 3 -- Défilé des 20 Miss
+### 💃 Étape 3 -- Défilé des 15 Miss
 
 -   Nouvelle notation sur 3 critères.
 -   Sélection automatique des **5 meilleures**.
