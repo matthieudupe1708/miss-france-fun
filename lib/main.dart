@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pages/page0_pari_initial.dart';
+import 'pages/welcome.dart';
 
 void main() {
   runApp(const MissFranceFunApp());
@@ -15,31 +15,31 @@ class MissFranceFunApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // 🎨 Couleurs principales
-        primaryColor: const Color(0xFF8B0000), // rouge foncé
-        scaffoldBackgroundColor: const Color(0xFFFFF8E1), // doré clair
+        primaryColor: const Color(0xFFA81D8C), // rouge foncé
+        scaffoldBackgroundColor: const Color(0x1BED66D2), // doré clair
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF8B0000),
-          primary: const Color(0xFF8B0000), // rouge foncé
-          secondary: const Color(0xFFFFD700), // doré
+          seedColor: const Color(0xFFA81D8C),
+          primary: const Color(0xFFA81D8C), // rouge foncé
+          secondary: const Color(0xFFA81D8C), // doré
         ),
 
         // 🧱 AppBar uniforme
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF8B0000),
-          foregroundColor: Colors.white,
+          backgroundColor: Color(0xFFA81D8C),
+          foregroundColor: Color(0x751010),
           elevation: 2,
           titleTextStyle: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: Color(0xFFFFFFFF),
           ),
         ),
 
         // 🟥 Boutons
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFF8B0000), // rouge foncé
-            foregroundColor: const Color(0xFFFFD700), // doré
+            backgroundColor: const Color(0xFFA81D8C), // rouge foncé
+            foregroundColor: const Color(0xFFFFFFFF), // doré
             textStyle: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
@@ -55,11 +55,11 @@ class MissFranceFunApp extends StatelessWidget {
         // 🖋️ Textes
         textTheme: const TextTheme(
           bodyMedium: TextStyle(
-            color: Color(0xFF8B0000), // rouge foncé
+            color: Color(0xFFA81D8C), // rouge foncé
             fontSize: 16,
           ),
           titleLarge: TextStyle(
-            color: Color(0xFF8B0000),
+            color: Color(0x51ED66D2),
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -72,12 +72,12 @@ class MissFranceFunApp extends StatelessWidget {
             borderSide: BorderSide(color: Colors.grey),
             borderRadius: BorderRadius.circular(8),
           ),
-          labelStyle: const TextStyle(color: Color(0xFF8B0000)),
+          labelStyle: const TextStyle(color: Color(0x51ED66D2)),
         ),
       ),
 
       // 🏁 Page d’accueil
-      home: const Page0PariInitial(),
+      home: const PageAccueil(),
     );
   }
 }

@@ -88,8 +88,8 @@ class _MissCardState extends State<MissCard> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
-                    isSelected ?  const Color(0xFF8B0000) : Colors.grey[300],
-                    foregroundColor: isSelected ? const Color(0xFFFFD700) : Colors.black,
+                    isSelected ?  const Color(0xFFA81D8C) : Colors.grey[300],
+                    foregroundColor: isSelected ? Color(0xFFFFFFFF) : Colors.grey[500],
                     shape: const CircleBorder(),
                     padding: const EdgeInsets.all(14),
                   ),
@@ -204,9 +204,9 @@ class _MissCardTenueState extends State<MissCardTenue> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
-                    isSelected ? const Color(0xFF8B0000) : Colors.grey[300],
+                    isSelected ? const Color(0xFFA81D8C) : Colors.grey[300],
                     foregroundColor:
-                    isSelected ? const Color(0xFFFFD700) : Colors.black,
+                    isSelected ? Color(0xFFFFFFFF) : Colors.grey[500],
                     shape: const CircleBorder(),
                     padding: const EdgeInsets.all(14),
                   ),
@@ -330,9 +330,9 @@ class _MissCardQuestionsState extends State<MissCardQuestions> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
-                    isSelected ? const Color(0xFF8B0000) : Colors.grey[300],
+                    isSelected ? const Color(0xFFA81D8C) : Colors.grey[300],
                     foregroundColor:
-                    isSelected ? const Color(0xFFFFD700) : Colors.black,
+                    isSelected ? Color(0xFFFFFFFF) : Colors.grey[500],
                     shape: const CircleBorder(),
                     padding: const EdgeInsets.all(14),
                   ),

@@ -7,7 +7,7 @@ class MiniJeuxButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: const Icon(Icons.videogame_asset),
+      icon: const Icon(Icons.videogame_asset, color: Colors.white),
       tooltip: "Mini-jeux",
       onPressed: () {
         Navigator.push(

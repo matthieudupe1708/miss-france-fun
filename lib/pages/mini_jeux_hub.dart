@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';   // <-- AJOUT
 import '../utils/theme.dart';
 import 'mini_jeu_bingo.dart';
 import 'mini_jeu_dessin.dart';
 
 class MiniJeuxHubPage extends StatelessWidget {
   const MiniJeuxHubPage({super.key});
+
+  // ---- Fonction pour ouvrir un lien externe ----
+  Future<void> openExternalUrl(String url) async {
+    final uri = Uri.parse(url);
+    if (!await launchUrl(
+      uri,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw Exception("Impossible d'ouvrir $url");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +36,7 @@ class MiniJeuxHubPage extends StatelessWidget {
             ),
             const SizedBox(height: 16),
 
+            // --- BINGO ---
             Card(
               elevation: 3,
               shape: RoundedRectangleBorder(
@@ -46,6 +59,7 @@ class MiniJeuxHubPage extends StatelessWidget {
             ),
             const SizedBox(height: 12),
 
+            // --- DESSIN ---
             Card(
               elevation: 3,
               shape: RoundedRectangleBorder(
@@ -63,6 +77,40 @@ class MiniJeuxHubPage extends StatelessWidget {
                       builder: (_) => const MiniJeuDessinerMissFrance(),
                     ),
                   );
+                },
+              ),
+            ),
+            const SizedBox(height: 12),
+
+            // --- MINI-JEU WEB 1 ---
+            Card(
+              elevation: 3,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: ListTile(
+                leading: const Icon(Icons.public),
+                title: const Text("Quiz Miss France 2026 – Partie 1"),
+                subtitle: const Text("CultureQuizz – spécial Miss France"),
+                onTap: () {
+                  openExternalUrl("https://www.culturequizz.com/quiz/quiz-culture-miss-france-2026-partie-1/",);
+                },
+              ),
+            ),
+            const SizedBox(height: 12),
+
+            // --- MINI-JEU WEB 2 ---
+            Card(
+              elevation: 3,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: ListTile(
+                leading: const Icon(Icons.public_outlined),
+                title: const Text("Quiz Miss France 2026 – Partie 2"),
+                subtitle: const Text("CultureQuizz – spécial Miss France"),
+                onTap: () {
+                  openExternalUrl("https://www.culturequizz.com/quiz/quiz-culture-miss-france-2026-partie-2/");
                 },
               ),
             ),

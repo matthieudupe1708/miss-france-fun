@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const Color rougeFonce = Color(0xFF8B0000);
-  static const Color dore = Color(0xFFFFD54F);
+  static const Color rougeFonce = Color(0xFFA81D8C);
+  static const Color dore = Color(0x51ED66D2);
 
   static const LinearGradient fondDegrade = LinearGradient(
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,
   colors: [
-  Color(0x26B71C1C), // rouge discret (15% opacité)
-  Color(0x26FFD54F), // doré discret
+  Color(0x1BFFFFFF), // rouge discret (15% opacité)
+  Color(0x1BED66D2), // doré discret
   ],
   );
 
