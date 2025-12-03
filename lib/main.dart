@@ -26,7 +26,7 @@ class MissFranceFunApp extends StatelessWidget {
         // 🧱 AppBar uniforme
         appBarTheme: const AppBarTheme(
           backgroundColor: Color(0xFFA81D8C),
-          foregroundColor: Color(0x751010),
+          foregroundColor: Color(0xFFFFFFFF),
           elevation: 2,
           titleTextStyle: TextStyle(
             fontSize: 20,
@@ -74,6 +74,7 @@ class MissFranceFunApp extends StatelessWidget {
           ),
           labelStyle: const TextStyle(color: Color(0x51ED66D2)),
         ),
+
       ),
 
       // 🏁 Page d’accueil

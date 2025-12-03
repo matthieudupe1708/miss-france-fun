@@ -97,7 +97,7 @@ class _Page2Select15State extends State<Page2Select15> {
                             border: Border.all(
                               color: isSelected
                                   ? AppTheme.rougeFonce
-                                  : Colors.grey[300]!,
+                                  : Color(0xED66D2),
                               width: isSelected ? 3 : 1,
                             ),
                             borderRadius: BorderRadius.circular(10),

@@ -13,18 +13,18 @@ class _MiniJeuBingoDiscoursState extends State<MiniJeuBingoDiscours> {
   static const _prefsKey = 'bingo_discours_states_v1';
 
   final List<_BingoCase> cases = [
-    _BingoCase("Je réalise un rêve de petite fille"),
-    _BingoCase("Je veux représenter ma région avec fierté"),
-    _BingoCase("Je suis très émue"),
-    _BingoCase("Je remercie mes parents"),
-    _BingoCase("La sororité entre Miss"),
-    _BingoCase("Une femme engagée et moderne"),
-    _BingoCase("Je veux défendre une cause qui me tient à cœur"),
-    _BingoCase("C’est une incroyable aventure humaine"),
-    _BingoCase("Merci au comité Miss France"),
-    _BingoCase("Je ne m’y attendais pas du tout"),
-    _BingoCase("Je suis très fière de mon parcours"),
-    _BingoCase("Je veux inspirer les jeunes filles"),
+    _BingoCase("Une chute des plus classe"),
+    _BingoCase("Je veux \"faire découvrir mon île au français\""),
+    _BingoCase("Une miss fait un coeur avec les mains"),
+    _BingoCase("Cri de guerre des miss pendant le voyage"),
+    _BingoCase("Problème d'écharpe pendant le défilé"),
+    _BingoCase("\"Bonsoir la France\""),
+    _BingoCase("C'est un rêve de petite fille"),
+    _BingoCase("1 an d'abonnement à Télé-Loisir"),
+    _BingoCase("Miss cheveux court"),
+    _BingoCase("Une femme engagée et indépendante"),
+    _BingoCase("Une cause qui me tient à coeur"),
+    _BingoCase("\"Tout le monde peut devenir miss France\""),
   ];
 
   @override
@@ -86,7 +86,10 @@ class _MiniJeuBingoDiscoursState extends State<MiniJeuBingoDiscours> {
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Text(
                 "Coche ce que tu entends pendant les discours !",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -96,12 +99,14 @@ class _MiniJeuBingoDiscoursState extends State<MiniJeuBingoDiscours> {
               style: const TextStyle(fontSize: 14),
             ),
             const SizedBox(height: 12),
+
+            // 🔥 GRILLE 3 COLONNES
             Expanded(
               child: GridView.builder(
                 padding: const EdgeInsets.all(12),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 0.9,
+                  crossAxisCount: 3,         // 👈 3 colonnes
+                  childAspectRatio: 0.85,    // 👈 format compact et équilibré
                   crossAxisSpacing: 8,
                   mainAxisSpacing: 8,
                 ),
@@ -119,19 +124,19 @@ class _MiniJeuBingoDiscoursState extends State<MiniJeuBingoDiscours> {
                         side: BorderSide(
                           color: c.checked
                               ? AppTheme.dore
-                              : Colors.grey.withOpacity(0.5),
+                              : Colors.grey.withOpacity(0.4),
                           width: 2,
                         ),
                       ),
                       elevation: 3,
                       child: Padding(
-                        padding: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(8),
                         child: Center(
                           child: Text(
                             c.label,
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 12.5,
                               fontWeight: FontWeight.w600,
                               color: c.checked ? Colors.white : Colors.black,
                             ),
@@ -143,10 +148,11 @@ class _MiniJeuBingoDiscoursState extends State<MiniJeuBingoDiscours> {
                 },
               ),
             ),
+
+            // Bouton reset
             SafeArea(
               child: Padding(
-                padding:
-                const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Row(
                   children: [
                     Expanded(

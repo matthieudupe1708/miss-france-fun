@@ -9,7 +9,7 @@ class MiniJeuDessinerMissFrance extends StatefulWidget {
       _MiniJeuDessinerMissFranceState();
 }
 
-// Petit modèle pour mémoriser un point + sa couleur
+// Point coloré (position + couleur)
 class _ColoredPoint {
   final Offset? offset;
   final Color color;
@@ -20,10 +20,14 @@ class _MiniJeuDessinerMissFranceState
     extends State<MiniJeuDessinerMissFrance> {
   final List<_ColoredPoint> _points = [];
 
-  // Couleur actuelle utilisée pour dessiner
+  // Chemin de ton image de base à colorier
+  static const String _baseImagePath =
+      "assets/mini_jeux/coloriage_miss.png"; // 🔁 adapte le nom si besoin
+
+  // Couleur actuelle
   Color _currentColor = AppTheme.rougeFonce;
 
-  // Palette proposée
+  // Palette
   final List<Color> _palette = [
     AppTheme.rougeFonce,
     AppTheme.dore,
@@ -41,13 +45,13 @@ class _MiniJeuDessinerMissFranceState
 
   void _endStroke() {
     setState(() {
-      _points.add(_ColoredPoint(null, _currentColor)); // Séparateur
+      _points.add(_ColoredPoint(null, _currentColor)); // séparateur de trait
     });
   }
 
   void _clear() {
     setState(() {
-      _points.clear();
+      _points.clear(); // ⚠️ on efface SEULEMENT la couleur, pas l'image
     });
   }
 
@@ -61,7 +65,7 @@ class _MiniJeuDessinerMissFranceState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Dessine ta Miss France"),
+        title: const Text("Colorie ta Miss France"),
         centerTitle: true,
       ),
       body: Container(
@@ -72,14 +76,14 @@ class _MiniJeuDessinerMissFranceState
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Text(
-                "Utilise ton doigt pour dessiner la couronne ta Miss France idéale.\n"
-                    "Astuce : tourne ton téléphone en paysage pour plus de place 😉",
+                "Colorie le dessin sans modifier les traits.\n"
+                    "Choisis une couleur, puis passe ton doigt sur l'image.",
                 textAlign: TextAlign.center,
               ),
             ),
             const SizedBox(height: 12),
 
-            // Zone de dessin
+            // Zone de coloriage
             Expanded(
               child: Container(
                 margin: const EdgeInsets.all(12),
@@ -88,14 +92,31 @@ class _MiniJeuDessinerMissFranceState
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(color: AppTheme.rougeFonce, width: 2),
                 ),
-                child: GestureDetector(
-                  onPanStart: (details) => _addPoint(details.localPosition),
-                  onPanUpdate: (details) => _addPoint(details.localPosition),
-                  onPanEnd: (_) => _endStroke(),
-                  child: CustomPaint(
-                    painter: _DessinPainter(_points),
-                    child: Container(),
-                  ),
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    return GestureDetector(
+                      onPanStart: (details) => _addPoint(details.localPosition),
+                      onPanUpdate: (details) => _addPoint(details.localPosition),
+                      onPanEnd: (_) => _endStroke(),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(14),
+                        child: Stack(
+                          fit: StackFit.expand,
+                          children: [
+                            // 🖼️ Image de base non modifiable
+                            Image.asset(
+                              _baseImagePath,
+                              fit: BoxFit.contain,
+                            ),
+                            // 🎨 Couleur par-dessus
+                            CustomPaint(
+                              painter: _DessinPainter(_points),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
             ),
@@ -153,7 +174,7 @@ class _MiniJeuDessinerMissFranceState
                       child: ElevatedButton.icon(
                         onPressed: _clear,
                         icon: const Icon(Icons.delete),
-                        label: const Text("Effacer tout"),
+                        label: const Text("Effacer les couleurs"),
                       ),
                     ),
                   ],
@@ -175,22 +196,19 @@ class _DessinPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..strokeWidth = 4.0
+      ..strokeWidth = 6.0   // un peu plus large pour bien colorier
       ..strokeCap = StrokeCap.round;
 
     for (int i = 0; i < points.length - 1; i++) {
       final p1 = points[i];
       final p2 = points[i + 1];
       if (p1.offset != null && p2.offset != null) {
-        paint.color = p2.color; // couleur du trait
+        paint.color = p2.color;
         canvas.drawLine(p1.offset!, p2.offset!, paint);
       }
     }
   }
 
   @override
-  bool shouldRepaint(covariant _DessinPainter oldDelegate) {
-    // On redessine dès que la liste change
-    return true;
-  }
+  bool shouldRepaint(covariant _DessinPainter oldDelegate) => true;
 }

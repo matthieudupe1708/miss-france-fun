@@ -97,7 +97,7 @@ class _Page4Select5State extends State<Page4Select5> {
                             border: Border.all(
                               color: isSelected
                                   ? AppTheme.rougeFonce
-                                  : Colors.grey[300]!,
+                                  : Color(0xED66D2),
                               width: isSelected ? 3 : 1,
                             ),
                             borderRadius: BorderRadius.circular(10),
